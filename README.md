@@ -2,12 +2,6 @@
 
 A RESTful service for pizza inventory management for a pizza company's web storefront and mobile application.
 
-<!--
-  namespace: ContosoPizza
-  GitHub slug: ContosoPizza
-  About text: A C# .NET 8.0 API app with Controllers, Models, and Services.
- -->
-
 <span aria-hidden="true"><br></span>
 
 ## Prerequisites
@@ -74,7 +68,6 @@ Steps: Models then Services then Controllers
 
 ```sh
 dotnet new webapi -controllers -f net8.0
-dotnet run
 ```
 
 - This command creates the files for a basic web API project that uses controllers
@@ -151,14 +144,14 @@ Accept: application/json
 ```
 
 > [!NOTE]
-> The _Send Request_ links in my `.http` file are not working. I saw an error about port 5117 being used so I changed it to 5118 and that opened the Swagger UI in the browser but the Send Request links still do not work. I get the same error when I run `dotnet run` and try a request from the .http file.
+> The _Send Request_ links in my `.http` file are not working. I saw an error about port 5117 being used so I changed it to 5118 and that opened the Swagger UI in the browser but the Send Request links still do not work. I get the same error when I run `dotnet run` and tried a request from the .http file.
 
 ```
 warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
       Failed to determine the https port for redirect.
 ```
 
-So how do you test? Do you use Swagger or do you use the .http file?
+So how do you test? Do you use Swagger or do you use the .http file? I used the Play button in `Program.cs` which opened Swagger, but it seems that disables the Send Request links in the `.http` file. The Swagger UI worked but instead run `dotnet run` then try the links in `.http`.
 
 #### Data store and models
 
@@ -369,10 +362,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 // Enable HTTPS redirection middleware
 app.UseHttpsRedirection();
-
 // Enable authorization in an ASP.NET Core application
 app.UseAuthorization();
 
